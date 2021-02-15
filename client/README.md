@@ -1,5 +1,3 @@
-# Grid Movement
+# Upskilled, bring normality to the 'new-normal'
 
-This repository contains the source code to my tutorial on implementing a grid based movement with Phaser 3: https://medium.com/swlh/grid-based-movement-in-a-top-down-2d-rpg-with-phaser-3-e3a3486eb2fd
-
-If you are interested in using this functionality you should check out my following plugin: https://github.com/Annoraaq/phaser-grid-movement-plugin
+Upskilled intends to be the de-facto way for students to interact with each other like they were at university.
