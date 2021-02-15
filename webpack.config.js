@@ -4,8 +4,8 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: "./src/main.ts",
-    vendors: ["phaser"]
+    app: "./src/client/main.ts",
+    vendors: ["phaser"],
   },
 
   module: {
@@ -13,40 +13,42 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: "ts-loader",
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+    ],
   },
 
   resolve: {
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".ts", ".tsx", ".js"],
   },
 
   output: {
     filename: "app.bundle.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
   },
 
   mode: "development",
 
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),
-    https: true
+    https: true,
   },
 
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "index.html").replace(/\\/g, '/'),
-          to: path.resolve(__dirname, "dist").replace(/\\/g, '/')
+          from: path.resolve(__dirname, "index.html").replace(/\\/g, "/"),
+          to: path.resolve(__dirname, "dist").replace(/\\/g, "/"),
         },
         {
-          from: path.resolve(__dirname, "assets", "**", "*").replace(/\\/g, '/'),
-          to: path.resolve(__dirname, "dist").replace(/\\/g, '/')
-        }
-      ]
-    })
+          from: path
+            .resolve(__dirname, "assets", "**", "*")
+            .replace(/\\/g, "/"),
+          to: path.resolve(__dirname, "dist").replace(/\\/g, "/"),
+        },
+      ],
+    }),
   ],
 
   optimization: {
@@ -55,10 +57,9 @@ module.exports = {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: "vendors",
-          chunks: "all"
-        }
-      }
-    }
-  }
-
+          chunks: "all",
+        },
+      },
+    },
+  },
 };

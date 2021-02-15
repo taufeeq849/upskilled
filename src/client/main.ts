@@ -2,7 +2,7 @@ import * as Phaser from "phaser";
 import { GridControls } from "./GridControls";
 import { GridPhysics } from "./GridPhysics";
 import { Player } from "./Player";
-
+import { Client } from "./SocketClient";
 const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
   active: false,
   visible: false,
@@ -23,6 +23,8 @@ export class GameScene extends Phaser.Scene {
   }
 
   public create() {
+    const client = new Client();
+    client.sendTest();
     const cloudCityTilemap = this.make.tilemap({ key: "cloud-city-map" });
     cloudCityTilemap.addTilesetImage("Cloud City", "tiles");
     for (let i = 0; i < cloudCityTilemap.layers.length; i++) {
