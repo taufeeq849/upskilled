@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Upskilled!</title>
+  <style>
+    body {
+      background: white;
+    }
+  </style>
+</head>
+
+  <body>
+    <div id='game'></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io("http://localhost:8080")
+      socket.emit("msg", "test")
+    </script>
+    <script src = "./././main.ts" type="text/javascript"></script>
+  </body>
+
+</html>

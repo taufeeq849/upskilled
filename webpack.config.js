@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: "./src/client/main.ts",
+    app: "./src/game/main.ts",
     vendors: ["phaser"],
   },
 
@@ -38,7 +38,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "index.html").replace(/\\/g, "/"),
+          from: path.resolve(__dirname, "./src/index.html").replace(/\\/g, "/"),
           to: path.resolve(__dirname, "dist").replace(/\\/g, "/"),
         },
         {

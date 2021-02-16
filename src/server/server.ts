@@ -5,18 +5,21 @@ const port = process.env.PORT || 8080;
 app.set("port", port);
 let http = require("http").Server(app);
 let io = require("socket.io")(http);
-const cors = require("cors");
+/* const cors = require("cors");
+app.use(cors({ credentials: true, origin: true }));
+ */
+app.use(express.static(path.join(__dirname, "../client")));
 
-app.use(cors());
 app.get("/", (req: any, res: any) => {
-  res.send("Socket IO server");
-  console.log("");
+  res.sendFile(path.resolve("./dist/client/index.html"));
 });
 
 const server = http.listen(port, function () {
   console.log("listening on port ", port);
 });
+
 server.lastPlayerID = 0;
+
 io.on("connection", function (socket: any) {
   socket.on("newplayer", function () {
     socket.player = {

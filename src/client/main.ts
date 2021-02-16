@@ -51,12 +51,16 @@ export class GameScene extends Phaser.Scene {
   }
 
   public preload() {
-    this.load.image("tiles", "assets/cloud_tileset.png");
-    this.load.tilemapTiledJSON("cloud-city-map", "assets/cloud-city.json");
-    this.load.spritesheet("player", "assets/characters.png", {
-      frameWidth: Player.SPRITE_FRAME_WIDTH,
-      frameHeight: Player.SPRITE_FRAME_HEIGHT,
-    });
+    try {
+      this.load.image("tiles", "assets/cloud_tileset.png");
+      this.load.tilemapTiledJSON("cloud-city-map", "assets/cloud_city.json");
+      this.load.spritesheet("player", "assets/characters.png", {
+        frameWidth: Player.SPRITE_FRAME_WIDTH,
+        frameHeight: Player.SPRITE_FRAME_HEIGHT,
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 
